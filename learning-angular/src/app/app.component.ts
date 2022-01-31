@@ -8,7 +8,6 @@ import { Pokemon } from 'src/helper-files/Pokemon';
 })
 export class AppComponent {
   title: string = '<em>Learning</em>';
-  myList: PokemonList;
 
   constructor() {
 
@@ -54,10 +53,6 @@ export class AppComponent {
     this.processPokemon(pikachu);
     this.processPokemon(eevee);
 
-    this.myList = new PokemonList(pikachu);
-    console.log("The log out for my list of pokemon", this.myList.items);
-    // this.myList.items = [];
-
   }
 
   processPokemon(myPokemon: Pokemon): void {
@@ -65,25 +60,3 @@ export class AppComponent {
   }
 }
 
-
-class PokemonList {
-  static pokemonCount = 0;
-  private _items: Pokemon[];
-
-  constructor(item: Pokemon) {
-    this._items = []; // initialize array
-    this._items[0] = item;
-    this.increaseCount();
-  }
-
-  get items(): Pokemon[] {
-    return this._items;
-  }
-  set items(newList: Pokemon[]) {
-    this._items = newList;
-  }
-
-  increaseCount() {
-    return ++PokemonList.pokemonCount;
-  }
-}
