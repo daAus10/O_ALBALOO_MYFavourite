@@ -1,1 +1,8 @@
-<p>content-card works!</p>
+<div class="type">{{ pokemonster ? pokemonster.type : '' }}</div>
+<div class="description">{{ pokemonster ? pokemonster.description : '' }}</div>
+<div *ngIf="pokemonster ? pokemonster.trainerName : null" class="trainer-name">{{ pokemonster ? pokemonster.trainerName
+    : '' }}</div>
+<div class="content-card-image"><img [src]="pokemonster ? pokemonster.imageUrl : ''"></div>
+
+
+<!-- <span [innerHTML]="returntag()"></span> -->

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Pokemon } from 'src/helper-files/Pokemon';
+import { Pokemon } from '../helper-files/Pokemon';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,7 @@ import { Pokemon } from 'src/helper-files/Pokemon';
 })
 export class AppComponent {
   title: string = '<em>Learning</em>';
+  pokemonsters: Pokemon[];
 
   constructor() {
 
@@ -31,32 +32,30 @@ export class AppComponent {
     //   lastName: 'Nikita',
     //   favouriteNumber: 10
     // };
-
-    let pikachu: Pokemon;
-    pikachu = {
+    this.pokemonsters = [{
       id: 0,
       type: "Electric",
+      name: "Pikachu",
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp/220px-Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp.png",
       description: "Easily the most popular pokemon around",
       trainerName: "Ash"
-    };
-
-    let eevee: Pokemon;
-    eevee = {
+    }, {
       id: 1,
       type: 'Normal',
+      name: 'Eevee',
       imageUrl: "",
       description: "The normalest of types, an evolves into every type"
-    }
+    }, {
+      id: 2,
+      type: 'dragon',
+      name: 'Dragonite',
+      imageUrl: '',
+      description: "The third form of this pokemon",
+      trainerName: 'Lance'
+    }];
 
-
-    this.processPokemon(pikachu);
-    this.processPokemon(eevee);
 
   }
 
-  processPokemon(myPokemon: Pokemon): void {
-    console.log("Type of my pokemon is ", myPokemon.trainerName, " more data about the pokemon ", myPokemon);
-  }
 }
 

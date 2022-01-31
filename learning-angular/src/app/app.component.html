@@ -1,4 +1,7 @@
-<div>
-  {{ myList.items[0].type }}
-</div>
-<app-content-card></app-content-card>
+<app-content-card *ngFor="let individualPokemon of pokemonsters; index as i; last as isLast"
+  [pokemonster]="individualPokemon" [class.is-last]="isLast">
+</app-content-card>
+
+
+
+<!-- <div class="type">{{ eevee.type }}</div> -->

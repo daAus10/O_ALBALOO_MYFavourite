@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from '../../helper-files/Pokemon';
 
 @Component({
   selector: 'app-content-card',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
+  @Input() pokemonster?: Pokemon;
 
   constructor() { }
 
   ngOnInit(): void {
-
   }
+
+  // returntag(): string {
+  //   return `<div class="type">${this.pikachu ? this.pikachu.type : ''}</div>`;
+  // }
 
 }
