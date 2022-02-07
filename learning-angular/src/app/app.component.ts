@@ -7,11 +7,12 @@ import { Pokemon } from '../helper-files/Pokemon';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = '<em>Learning</em>';
+  title: string = 'Learning';
   pokemonsters: Pokemon[];
+  birthday: Date;
 
   constructor() {
-
+    this.birthday = new Date();
     // let name: string; // explicitly set the type to string
     // name = 'Peter';
     // name = 10;
@@ -38,13 +39,15 @@ export class AppComponent {
       name: "Pikachu",
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp/220px-Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp.png",
       description: "Easily the most popular pokemon around",
-      trainerName: "Ash"
+      trainerName: "Ash",
+      tags: ["Starter"]
     }, {
       id: 1,
       type: 'Normal',
       name: 'Eevee',
       imageUrl: "",
-      description: "The normalest of types, an evolves into every type"
+      description: "The normalest of types, an evolves into every type",
+      tags: ["Gary's first pokemon"]
     }, {
       id: 2,
       type: 'dragon',
@@ -55,6 +58,14 @@ export class AppComponent {
     }];
 
 
+  }
+
+  updatePage(sTerm: string): void {
+    console.log("Before changing it ", sTerm);
+    sTerm = "I changed it the bad way";
+    console.log("After changing it ", sTerm);
+    // this.title = "Changed value of title";
+    // run something here
   }
 
 }

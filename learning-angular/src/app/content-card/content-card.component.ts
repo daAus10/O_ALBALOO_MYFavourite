@@ -9,10 +9,18 @@ import { Pokemon } from '../../helper-files/Pokemon';
 export class ContentCardComponent implements OnInit {
   @Input() pokemonster?: Pokemon;
 
-  constructor() { }
+  constructor() {
+    // this.pokemonster = { id: 0, }
+  }
 
   ngOnInit(): void {
+    if (this.pokemonster?.type == "Normal") {
+      console.log(this.pokemonster?.name);
+    }
+
   }
+
+
 
   // returntag(): string {
   //   return `<div class="type">${this.pikachu ? this.pikachu.type : ''}</div>`;

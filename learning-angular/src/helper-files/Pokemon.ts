@@ -5,4 +5,5 @@ export interface Pokemon {
     imageUrl: string;
     description: string;
     trainerName?: string;
+    tags?: string[];
 }

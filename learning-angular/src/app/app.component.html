@@ -1,7 +1,29 @@
-<app-content-card *ngFor="let individualPokemon of pokemonsters; index as i; last as isLast"
+<div>
+
+  <!-- {{ title + "something extra" }} -->
+
+</div>
+<div>
+  <h4>Template reference variable</h4>
+  <input #searchTerm>: {{ searchTerm.value }}
+  <br><button (click)="updatePage(searchTerm.value)">Update page</button>
+</div>
+<div>
+  <h4>Two way binding</h4>
+  <input [(ngModel)]="title">
+  <div *ngIf="title != ''">{{title}}</div>
+  <div *ngIf="title === ''">No title set</div>
+
+</div>
+<div>
+  <h4>Pipes</h4>
+  <div>{{ title | lowercase }}</div>
+  <div>{{birthday | date:"MM/dd/yy" }}</div>
+  <div>{{birthday | date | uppercase }}</div>
+</div>
+
+
+<app-content-card *ngFor="let individualPokemon of (pokemonsters | contentTagged); index as i; last as isLast"
   [pokemonster]="individualPokemon" [class.is-last]="isLast">
 </app-content-card>
-
-
-
 <!-- <div class="type">{{ eevee.type }}</div> -->
