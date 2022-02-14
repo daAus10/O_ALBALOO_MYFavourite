@@ -40,7 +40,7 @@ export class AppComponent {
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp/220px-Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp.png",
       description: "Easily the most popular pokemon around",
       trainerName: "Ash",
-      tags: ["Starter"]
+      tags: ["Starter", "maincharacter"]
     }, {
       id: 1,
       type: 'Normal',
@@ -50,11 +50,12 @@ export class AppComponent {
       tags: ["Gary's first pokemon"]
     }, {
       id: 2,
-      type: 'dragon',
+      // type: 'dragon',
       name: 'Dragonite',
       imageUrl: '',
       description: "The third form of this pokemon",
-      trainerName: 'Lance'
+      trainerName: 'Lance',
+      tags: ["maildelivery"]
     }];
 
 

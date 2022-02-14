@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { DefaultTrainerNamePipe } from './default-trainer-name.pipe';
 import { ContentTaggedPipe } from './content-tagged.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentCardComponent,
     DefaultTrainerNamePipe,
-    ContentTaggedPipe
+    ContentTaggedPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

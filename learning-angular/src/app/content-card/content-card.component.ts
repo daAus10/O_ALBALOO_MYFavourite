@@ -8,6 +8,7 @@ import { Pokemon } from '../../helper-files/Pokemon';
 })
 export class ContentCardComponent implements OnInit {
   @Input() pokemonster?: Pokemon;
+  colour: string = "dodgerblue";
 
   constructor() {
     // this.pokemonster = { id: 0, }
