@@ -8,6 +8,7 @@ import {Content} from "../helper-files/content-interface";
 })
 export class ContentListComponent implements OnInit {
   digimonList: Content[];
+  titleFound?: boolean;
 
   constructor() {
     this.digimonList = [{
@@ -37,7 +38,7 @@ export class ContentListComponent implements OnInit {
       description: "He looks like a beetle",
       creator: 'Izzy',
       // imgURL: 'https://upload.wikimedia.org/wikipedia/en/5/5b/Agumonappearance.png',
-      type: "Rookie"
+      // type: "Rookie"
     }, {
       id: 4,
       title: 'Gomamon',
@@ -51,10 +52,39 @@ export class ContentListComponent implements OnInit {
       creator: 'Mimi',
       // imgURL: 'https://upload.wikimedia.org/wikipedia/it/thumb/d/d5/Biyomon.png/390px-Biyomon.png',
       type: 'Rookie'
+    }, {
+      id: 6,
+      title: 'Angemon',
+      description: "He's got wings",
+      creator: 'T.K.',
+      // imgURL: 'https://upload.wikimedia.org/wikipedia/it/thumb/d/d5/Biyomon.png/390px-Biyomon.png',
+      type: 'Champion'
+    },{
+      id: 7,
+      title: 'Greymon',
+      description: "Digivolved version of Agumon",
+      creator: 'Tai',
+      // imgURL: 'https://upload.wikimedia.org/wikipedia/it/thumb/d/d5/Biyomon.png/390px-Biyomon.png',
+      type: 'Champion'
     }];
   }
 
   ngOnInit(): void {
   }
-
+  checkForTitle(title: string): void{
+    if (this.digimonList.some(d => d.title === title))
+    {
+      this.titleFound = true;
+    }
+    else {
+      this.titleFound = false;
+    }
+    if (this.digimonList.filter(d => d.title === title).length)
+    {
+      this.titleFound = true;
+    }
+    else {
+      this.titleFound = false;
+    }
+  }
 }
