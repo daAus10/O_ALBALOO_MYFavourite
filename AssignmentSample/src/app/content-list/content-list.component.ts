@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Content} from "../helper-files/content-interface";
+import { Content } from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-content-list',
@@ -32,7 +32,7 @@ export class ContentListComponent implements OnInit {
       creator: 'Sora',
       imgURL: 'https://upload.wikimedia.org/wikipedia/it/thumb/d/d5/Biyomon.png/390px-Biyomon.png',
       type: 'Rookie'
-    },{
+    }, {
       id: 3,
       title: 'Tentomon',
       description: "He looks like a beetle",
@@ -59,7 +59,7 @@ export class ContentListComponent implements OnInit {
       creator: 'T.K.',
       // imgURL: 'https://upload.wikimedia.org/wikipedia/it/thumb/d/d5/Biyomon.png/390px-Biyomon.png',
       type: 'Champion'
-    },{
+    }, {
       id: 7,
       title: 'Greymon',
       description: "Digivolved version of Agumon",
@@ -71,16 +71,14 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  checkForTitle(title: string): void{
-    if (this.digimonList.some(d => d.title === title))
-    {
+  checkForTitle(title: string): void {
+    if (this.digimonList.some(d => d.title === title)) {
       this.titleFound = true;
     }
     else {
       this.titleFound = false;
     }
-    if (this.digimonList.filter(d => d.title === title).length)
-    {
+    if (this.digimonList.filter(d => d.title === title).length) {
       this.titleFound = true;
     }
     else {
