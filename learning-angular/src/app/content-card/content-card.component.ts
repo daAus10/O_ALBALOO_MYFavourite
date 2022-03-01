@@ -8,6 +8,7 @@ import { Pokemon } from '../../helper-files/Pokemon';
 })
 export class ContentCardComponent implements OnInit {
   @Input() pokemonster?: Pokemon;
+  // @Input() pokemonList?: Pokemon[];
   colour: string = "dodgerblue";
 
   constructor() {
@@ -18,7 +19,18 @@ export class ContentCardComponent implements OnInit {
     if (this.pokemonster?.type == "Normal") {
       console.log(this.pokemonster?.name);
     }
-
+    // this.pokemonList?.push({
+    //   id: 10,
+    //   // type: 'dragon',
+    //   name: 'Misdreavus',
+    //   imageUrl: '',
+    //   description: "It's a mischievious pokemon",
+    //   trainerName: 'Alex',
+    //   tags: ["maildelivery"]
+    // });
+  }
+  runClickFunction(): void {
+    console.log("CLicked the image");
   }
 
 

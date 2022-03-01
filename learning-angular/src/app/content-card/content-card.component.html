@@ -6,7 +6,7 @@
         <span *ngSwitchDefault>A typeless pokemon</span>
     </div>
     <div appHighlight colour="cyan" class="description">{{ pokemonster.description }}</div>
-    <div class="content-card-image"><img [src]="pokemonster.imageUrl"></div>
+    <div class="content-card-image"><img (click)="runClickFunction()" [src]="pokemonster.imageUrl"></div>
     <div class="trainer-name">{{ pokemonster | defaultTrainerName : "Gary" }}</div>
     <div *ngIf="pokemonster.tags" class="tags">
         <span appHighlight class="tag" *ngFor="let tag of pokemonster.tags"> {{ tag }}</span>

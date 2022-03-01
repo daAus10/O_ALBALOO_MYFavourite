@@ -58,7 +58,65 @@ export class AppComponent {
       tags: ["maildelivery"]
     }];
 
+    console.log("First console log");
 
+    setTimeout(function () {
+      console.log("Second console log");
+    }, 0);
+
+    Promise.resolve().then(function () {
+      console.log("Third console log");
+    });
+
+    console.log("Fourth console log");
+
+    let ourPromise = new Promise(function (success, fail) {
+      let testPass = false;
+      if (testPass) {
+        success("Success was achieved!");
+      }
+      else {
+        fail("Failure :(");
+      }
+    });
+
+    ourPromise.then(successResult =>
+      console.log(successResult))
+      .catch((failResult) => { return console.log(failResult); });
+
+    let getStuff = async function () {
+      return "SpecialValue";
+    }
+
+    let getTheSameStuff = function () {
+      return Promise.resolve("differentValue");
+    }
+
+    // getStuff().then(value => console.log("First promise get stuff returns: ", value));
+
+    //different way to represent functions
+    let getAllTheStuff = async () => {
+      const theFirstStuff = await getStuff();
+      const theSecondStuff = await getTheSameStuff();
+      //returns both promises
+      return [theFirstStuff, theSecondStuff];
+    }
+
+    getAllTheStuff();
+
+    let getAllTheStuffButFaster = async () => {
+      const theFirstStuff = getStuff();
+      const theSecondStuff = getTheSameStuff();
+      //note we moved the await from the two calls above to this Promise.all call
+      //now when this function runs, it will run both async functions concurrent
+      return await Promise.all([theFirstStuff, theSecondStuff]);
+    }
+
+    getAllTheStuffButFaster();
+
+
+
+    console.log(this.pokemonsters);
   }
 
   updatePage(sTerm: string): void {
@@ -68,6 +126,18 @@ export class AppComponent {
     // this.title = "Changed value of title";
     // run something here
   }
+  addPokemonToList(newPokemonOnTheListSide: Pokemon): void {
+    console.log("The list before I push: ", this.pokemonsters);
+    this.pokemonsters.push(newPokemonOnTheListSide);
+    console.log("The list AFTER I push: ", this.pokemonsters);
 
+    // We need to clone the array for the pipe to work
+    // This is an old way of cloning an object
+    // this.pokemonsters = Object.assign([], this.pokemonsters);
+
+    // This is a newer, faster way to clone an array
+    this.pokemonsters = [...this.pokemonsters]; // using the spread operator
+
+  }
 }
 
