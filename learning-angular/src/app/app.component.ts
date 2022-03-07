@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../helper-files/Pokemon';
+import { PokemonService } from './services/pokemon.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = 'Learning';
   pokemonsters: Pokemon[];
   birthday: Date;
 
-  constructor() {
+  constructor(private pokemonService: PokemonService) {
     this.birthday = new Date();
+    this.pokemonsters = [];
     // let name: string; // explicitly set the type to string
     // name = 'Peter';
     // name = 10;
@@ -33,30 +35,6 @@ export class AppComponent {
     //   lastName: 'Nikita',
     //   favouriteNumber: 10
     // };
-    this.pokemonsters = [{
-      id: 0,
-      type: "Electric",
-      name: "Pikachu",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp/220px-Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp.png",
-      description: "Easily the most popular pokemon around",
-      trainerName: "Ash",
-      tags: ["Starter", "maincharacter"]
-    }, {
-      id: 1,
-      type: 'Normal',
-      name: 'Eevee',
-      imageUrl: "",
-      description: "The normalest of types, an evolves into every type",
-      tags: ["Gary's first pokemon"]
-    }, {
-      id: 2,
-      // type: 'dragon',
-      name: 'Dragonite',
-      imageUrl: '',
-      description: "The third form of this pokemon",
-      trainerName: 'Lance',
-      tags: ["maildelivery"]
-    }];
 
     console.log("First console log");
 
@@ -117,6 +95,22 @@ export class AppComponent {
 
 
     console.log(this.pokemonsters);
+  }
+
+  ngOnInit(): void {
+    // got the content synchronously
+    // this.pokemonsters = this.pokemonService.getContent();
+
+    // get the content asynchronously
+    this.pokemonService.getContentObs().subscribe(pokemonarray => {
+      this.pokemonsters = pokemonarray;
+    });
+
+    // asynchronous, but isolated scope due to function
+    // this.pokemonService.getContentObs().subscribe(function (pokemonarray) {
+    //   this.pokemonsters = pokemonarray;
+    // });
+
   }
 
   updatePage(sTerm: string): void {
