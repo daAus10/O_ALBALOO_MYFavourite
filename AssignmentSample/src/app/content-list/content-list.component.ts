@@ -78,11 +78,17 @@ export class ContentListComponent implements OnInit {
     else {
       this.titleFound = false;
     }
-    if (this.digimonList.filter(d => d.title === title).length) {
-      this.titleFound = true;
-    }
-    else {
-      this.titleFound = false;
-    }
+    // if (this.digimonList.filter(d => d.title === title).length) {
+    //   this.titleFound = true;
+    // }
+    // else {
+    //   this.titleFound = false;
+    // }
+  }
+  addContentToList(newContent: Content): void {
+    console.log("content that came from the child element: ", newContent);
+    this.digimonList.push(newContent);
+    this.digimonList = [...this.digimonList];
+    console.log("my list after cloning: ", this.digimonList);
   }
 }
