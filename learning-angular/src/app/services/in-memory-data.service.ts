@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from "angular-in-memory-web-api";
-import { POKEMONSTERS } from 'src/helper-files/contentDb';
+import { POKEMONSTERS } from '../../helper-files/contentDb';
 import { Pokemon } from '../../helper-files/Pokemon';
 
 
