@@ -1,4 +1,4 @@
-<div *ngIf="pokemonster">
+<div *ngIf="pokemonster" class="pokemon-{{pokemonster?.id}}">
     <div [style.color]='colour' class="name">{{ pokemonster.name }}</div>
     <div [ngSwitch]='pokemonster.type'>
         <span *ngSwitchCase='"Electric"'>Uses thunder real well</span>

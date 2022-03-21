@@ -8,6 +8,7 @@ import { Pokemon } from '../../helper-files/Pokemon';
 })
 export class AddContentComponent implements OnInit {
   @Output() newPokemonEvent: EventEmitter<Pokemon> = new EventEmitter<Pokemon>();
+  @Output() updatePokemonEvent: EventEmitter<Pokemon> = new EventEmitter<Pokemon>();
   newPokemon?: Pokemon;
 
   constructor() { }
@@ -15,7 +16,18 @@ export class AddContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addPokemon(id: string, name: string, imageUrl: string, description: string, tags: string): void {
+  addPokemon(name: string, imageUrl: string, description: string, tags: string): void {
+    this.newPokemon = {
+      // id: parseInt(id),
+      name: name,
+      imageUrl: imageUrl,
+      description: description,
+      tags: tags.split(",")
+    };
+    this.newPokemonEvent.emit(this.newPokemon);
+  }
+  
+  updatePokemon(id: string, name: string, imageUrl: string, description: string, tags: string): void {
     this.newPokemon = {
       id: parseInt(id),
       name: name,
@@ -23,7 +35,7 @@ export class AddContentComponent implements OnInit {
       description: description,
       tags: tags.split(",")
     };
-    this.newPokemonEvent.emit(this.newPokemon);
+    this.updatePokemonEvent.emit(this.newPokemon);
   }
 
 }

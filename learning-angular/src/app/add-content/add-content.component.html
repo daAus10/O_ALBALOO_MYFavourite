@@ -1,5 +1,5 @@
 <div>
-    ID: <input #id type="number">
+    ID (ONLY FOR UPDATING): <input #id type="number">
 </div>
 <div>
     Name: <input #name>
@@ -14,6 +14,8 @@
     Tags: <input #tags>
 </div>
 <div>
-    <button (click)="addPokemon(id.value, name.value, imageUrl.value, description.value, tags.value)">Add
+    <button (click)="addPokemon(name.value, imageUrl.value, description.value, tags.value)">Add
         Pokemon</button>
-</div>
+        <button (click)="updatePokemon(id.value, name.value, imageUrl.value, description.value, tags.value)">Update
+            Pokemon</button>
+    </div>
