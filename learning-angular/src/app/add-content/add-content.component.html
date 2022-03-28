@@ -1,6 +1,7 @@
-<div>
-    ID (ONLY FOR UPDATING): <input #id type="number">
-</div>
+<mat-form-field appearance="fill">
+    <mat-label>ID (ONLY FOR UPDATING)</mat-label>
+    <input matInput placeholder="0" #id>
+</mat-form-field>
 <div>
     Name: <input #name>
 </div>
@@ -14,8 +15,8 @@
     Tags: <input #tags>
 </div>
 <div>
-    <button (click)="addPokemon(name.value, imageUrl.value, description.value, tags.value)">Add
+    <button mat-raised-button (click)="addPokemon(name.value, imageUrl.value, description.value, tags.value)">Add
         Pokemon</button>
-        <button (click)="updatePokemon(id.value, name.value, imageUrl.value, description.value, tags.value)">Update
+    <button  mat-raised-button color="accent"  (click)="updatePokemon(id.value, name.value, imageUrl.value, description.value, tags.value)">Update
             Pokemon</button>
-    </div>
+</div>
