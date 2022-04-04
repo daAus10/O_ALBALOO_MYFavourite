@@ -1,5 +1,5 @@
 <div>
-    <label>ID: <input [(ngModel)]="tempid" type="number"></label>
+    <label>ID: <input matInput [(ngModel)]="tempid" type="number"></label>
 </div>
 <div>
     <label>Title: <input [(ngModel)]="newContent.title"></label>
@@ -20,7 +20,7 @@
     <label>Tags: <input [(ngModel)]="temptags"></label>
 </div>
 <div>
-    <button (click)="modifyOrAddItemToParent()">{{(tempid !== "") ? "Update Content": "Add Content"}}</button>
+    <button mat-raised-button color="primary" (click)="modifyOrAddItemToParent()">{{(tempid !== "") ? "Update Content": "Add Content"}}</button>
 </div>
 <!-- <div>
     <span class="error-message"> {{ errorMessage }}</span>

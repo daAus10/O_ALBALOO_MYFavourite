@@ -2,7 +2,7 @@
 
 <!--<form>-->
 <div>
-  <input #titleSearch>
+  <input matInput #titleSearch>
   <button (click)="checkForTitle(titleSearch.value)">Title Check</button>
   <div>
     <span class="success" *ngIf="titleFound"> {{ titleSearch.value}} found!</span>
